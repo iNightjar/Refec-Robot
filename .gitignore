@@ -1,2 +1,7 @@
 # django settings.py
 airline/settings.py
+
+
+#pycache
+airline/__pycache__
+flights/__pycache__
