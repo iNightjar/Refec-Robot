@@ -1,0 +1,19 @@
+{%extends "flights/layout.html"%}
+{%block body%}    
+    <h1>Flight  {{fligh.id}}</h1>
+    <ul>
+        <li>Origin: {{flight.origin}}</li>
+        <li>Destination: {{flight.destination}}</li>
+        <li>Duration: {{flight.duration}}</li>
+    </ul>
+
+
+    <h2>Passenger</h2>
+    <ul>
+        {% for passenger in passengers%}
+        <li>{{passenger}}</li>
+        {%empty%}      
+        <li>No Passengers.</li>
+        {%endfor%}
+    </ul>
+{%endblock%}
