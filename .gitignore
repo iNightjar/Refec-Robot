@@ -5,3 +5,4 @@ airline/settings.py
 #pycache
 airline/__pycache__
 flights/__pycache__
+users/__pycache__
