@@ -4,7 +4,49 @@
   <head>
     <title>Flights</title>
     <link rel="stylesheet" type="text/css" href="{%static 'css/style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{%static 'css/main.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
   </head>
+  <style>
+    td:hover {
+      background-color: #002333;
+      transition: 0.9s;
+    }
+    #tableBorder {
+      border: 3px solid #002333;
+      border-radius: 30px;
+    }
+
+    table {
+      border-spacing: 16px;
+    }
+    table th {
+      background-color: #002333;
+      color: white;
+      font-size: 1.4rem;
+    }
+    .head_content {
+      color: #f2cb05;
+      font-weight: bold;
+      font-size: 3rem;
+      letter-spacing: 8px;
+    }
+    #tHead {
+      background-color: transparent;
+      border-radius: 30px;
+    }
+    #passName {
+      background-color: #063043;
+    }
+    @media screen and(min-widht:767px) and (max-width: 1023px) {
+      #passName {
+        width: 100%;
+      }
+    }
+  </style>
   <body>
     {%block body%} {%endblock%}
   </body>
