@@ -1,10 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-    <head> 
-        <title>Flights</title>
-    </head>
-    <body>
-        {%block body%}
-        {%endblock%}    
-    </body>
+  <head>
+    <title>Flights</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'css/style.css' %}" />
+  </head>
+  <body>
+    {%block body%} {%endblock%}
+  </body>
 </html>
