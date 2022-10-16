@@ -1,34 +1,123 @@
-{%extends "flights/layout.html"%}
-{%block body%}    
-    <h1>Flight  {{fligh.id}}</h1>
-    <ul>
-        <li>Origin: {{flight.origin}}</li>
-        <li>Destination: {{flight.destination}}</li>
-        <li>Duration: {{flight.duration}}</li>
-    </ul>
+{%extends "flights/layout.html"%} {%block body%}
+<ul class="cards">
+  <li>
+    <a href="" class="card">
+      <img src="../../static/css/imgs/card2.jpg" class="card__image" alt="" />
+      <div class="card__overlay">
+        <div class="card__header">
+          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+            <path />
+          </svg>
+          <img
+            class="card__thumb"
+            src="../../static/css/imgs/avatar.jpg"
+            alt=""
+          />
+          <div class="card__header-text">
+            <h3 class="card__title">ORIGIN</h3>
+            <span class="card__status">1 hour ago</span>
+          </div>
+        </div>
+        <h3 class="card__description">{{flight.origin}}</h3>
+      </div>
+    </a>
+  </li>
+  <li>
+    <a href="" class="card">
+      <img src="../../static/css/imgs/cared1.jpg" class="card__image" alt="" />
+      <div class="card__overlay">
+        <div class="card__header">
+          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+            <path />
+          </svg>
+          <img
+            class="card__thumb"
+            src="../../static/css/imgs/avatar.jpg"
+            alt=""
+          />
+          <div class="card__header-text">
+            <h3 class="card__title">DESTINATION</h3>
+            <span class="card__status">3 hours ago</span>
+          </div>
+        </div>
+        <h3 class="card__description">{{flight.destination}}</h3>
+      </div>
+    </a>
+  </li>
 
+  <li>
+    <a href="" class="card">
+      <img src="../../static/css/imgs/cardd4.jpg" class="card__image" alt="" />
+      <div class="card__overlay">
+        <div class="card__header">
+          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+            <path />
+          </svg>
+          <img
+            class="card__thumb"
+            src="../../static/css/imgs/avatar.jpg"
+            alt=""
+          />
+          <div class="card__header-text">
+            <h3 class="card__title">DURATION</h3>
+            <span class="card__status">3 hours ago</span>
+          </div>
+        </div>
+        <h3 class="card__description">{{flight.duration}}</h3>
+      </div>
+    </a>
+  </li>
+</ul>
 
-    <h2>Passenger</h2>
-    <ul>
-        {% for passenger in passengers%}
-        <li>{{passenger}}</li>
-        {%empty%}      
-        <li>No Passengers.</li>
-        {%endfor%}
-    </ul>
+<div class="heroo_head">
+  <h3
+    class="head_content animate__animated animate__backInDown"
+    style="color: #f2cb05"
+  >
+    Passengers
+  </h3>
+</div>
+<div class="passengerForm">
+  <form action="{% url 'book' flight.id%}" method="post" id="form">
+    {%csrf_token%}
+    <select name="passenger" id="passenger_select">
+      {%for passenger in non_passengers%}
+      <option value="{{passenger.id}}">{{passenger}}</option>
+      {%endfor%}
+    </select>
+    <input type="submit" class="hvr-grow-shadow" />
+  </form>
+</div>
+<div
+  class="backToFlights"
+  style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  "
+>
+  <a
+    id="backFlights"
+    href="{% url 'index' %}"
+    style="
+      width: fit-content;
+      background-color: #002333;
+      border-radius: 20px;
+      padding: 15px;
+    "
+    >Back to Flight List</a
+  >
+</div>
+<div class="PassenderContainer">
+  {% for passenger in passengers%}
+  <div class="passengerName" style="border-radius: 30px" id="passName">
+    <img class="card__thumb" src="../../static/css/imgs/ava1.jpg" alt="" />
+    <h3>{{passenger}}</h3>
+  </div>
+  {%empty%}
+  <div>No Passengers</div>
+  {%endfor%}
+</div>
 
-    <h2>Add Passenger</h2>
-    <form action="{% url 'book' flight.id%}" method="post">
-
-        {%csrf_token%}
-        <select name="passenger">
-            {%for passenger in non_passengers%}
-                <option value="{{passenger.id}}">{{passenger}}</option>
-            {%endfor%}
-        </select>
-        <input type="submit">
-    </form>
-
-
-    <a href="{% url 'index' %}">Back to Flight List</a>
 {%endblock%}

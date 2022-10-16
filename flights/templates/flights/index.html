@@ -1,15 +1,38 @@
-{% extends "flights/layout.html" %}
-{% load static %}
-    {% block body %}
-    <h1>Flights</h1>
-    <ul>
-        {% for flight in flights %}
-            <li>
-                <a href="{% url 'flight' flight.id%}">
-                    Flight {{flight.id}}: {{flight.origin}} to {{flight.destination}}
-                </a>
-            </li>
-        {%endfor%}
-    </ul>
-    
-    {% endblock %} 
+{% extends "flights/layout.html" %} {% load static %} {% block body %}
+<div class="hero_head">
+  <p class="head_content animate__animated animate__bounce">Flights</p>
+</div>
+
+<table class="flights_table" id="tableBorder">
+  <thead>
+    <tr class="flights_cell" id="tHead">
+      <th>Flights</th>
+      <th>From</th>
+      <th>To</th>
+    </tr>
+  </thead>
+  {% for flight in flights %}
+  <tbody>
+    <tr>
+      <td>
+        <a href="{% url 'flight' flight.id%}">
+          Flight
+          <span class="id_style" style="background-color: #f2cb05"
+            >{{flight.id}}</span
+          >
+        </a>
+      </td>
+
+      <td>
+        <a href="{% url 'flight' flight.id%}">{{flight.origin}} </a>
+      </td>
+
+      <td>
+        <a href="{% url 'flight' flight.id%}"> {{flight.destination}} </a>
+      </td>
+    </tr>
+  </tbody>
+  {%endfor%}
+</table>
+
+{% endblock %}

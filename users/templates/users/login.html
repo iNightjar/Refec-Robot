@@ -1,14 +1,31 @@
-{% extends "users/layout.html" %}
-
-{% block body %}
-        <!-- display "invalid credentails message if wrong" -->
-    {% if message %}
-        <div>{{ message }}</div>
-    {% endif %}
-    <form action="{% url 'login' %}" method="post">
+{% extends "users/layout.html" %} {% block body %}
+<!-- display "invalid credentails message if wrong" -->
+{% if message %}
+<!-- <div>{{ message }}</div> -->
+{% endif %}
+<!-- <form action="{% url 'login' %}" method="post">
         {% csrf_token %}
         <input type="text" name="username" placeholder="Username">
         <input type="password" name="password" placeholder="Password">
         <input type="submit" value="Login">
-    </form>
+    </form> -->
+
+<div class="login-box">
+  <h2 class="xxx">Login</h2>
+  <form action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+    <div class="user-box">
+      <input type="text" name="username" required="" />
+      <label>Username</label>
+    </div>
+    <div class="user-box">
+      <input type="password" name="password" required="" />
+      <label>Password</label>
+    </div>
+    <input type="submit" value="Login" class="submit" style="color: black;">
+
+  </input>
+  </form>
+</div>
+
 {%endblock%}
