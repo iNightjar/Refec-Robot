@@ -1,6 +1,7 @@
 # django settings.py
-airline/settings.py
-
+# airline/settings.py
+# environment files
+env/V-en
 
 # all the applications pycache
 airline/__pycache__

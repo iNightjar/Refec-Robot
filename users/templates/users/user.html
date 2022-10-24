@@ -1,12 +1,18 @@
-{% extends "users/layout.html" %}
-{% block body %}
-    <h1>Welcome, {{request.user.first_name}}</h1>
+{% extends "users/layout.html" %} {% block body %}
 
-    <ul>
-        <!-- display user fist name and email address -->
-        <li>Username: {{ request.user.username }}</li>
-        <li>Email Address: {{ request.user.email }}</li>
-    </ul>
-        <!-- user logout link -->
-    <a href="{% url 'logout' %}">Log Out</a>
+<div class="userForm">
+  <div class="formContainer">
+    <h1 style="color:#F2CB05">Welcome <span>{{request.user.first_name}}</span></h1>
+    <div class="userInfo">
+      <span>
+      <span  style="font-size: 20px;font-weight:bold">  Username :</span>
+        <span style="color:#F2CB05">{{ request.user.username }}</p>
+      </span>
+    </div>
+    <div class="userInfo">
+      <span ><span style="font-size: 20px;font-weight:bold">Email Address :</span> <span style="color:#F2CB05">{{ request.user.email }}</span></h3>
+    </div>
+    <div id="logout"><a href="{% url 'logout' %}">Log Out</a></div>
+  </div>
+</div>
 {%endblock%}
